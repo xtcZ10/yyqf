@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技术博客</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        /* 主要内容容器 */
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            display: flex;
+        }
+
+        /* 文章列表 */
+        .main-content {
+            flex: 3;
+            padding: 20px;
+        }
+
+        /* 侧边栏 */
+        .sidebar {
+            flex: 1;
+            padding: 20px;
+            background-color: #fff;
+            margin-left: 20px;
+            border-radius: 5px;
+        }
+
+        /* 文章卡片 */
+        .article-card {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 30px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .post-date {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .read-more {
+            display: inline-block;
+            background-color: #333;
+            color: white;
+            padding: 8px 16px;
+            margin-top: 10px;
+            text-decoration: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .full-content {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            line-height: 1.6;
+        }
+
+        .full-content h2 {
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .sidebar {
+                margin-left: 0;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <main class="main-content">
+            <!-- 第一篇文章 -->
+            <div class="article-card">
+                <h1>HTML入门指南</h1>
+                <p class="post-date">2024年3月15日</p>
+                <p>HTML是构建网页的基础，学习HTML标签是成为前端开发者的第一步...</p>
+                <a class="read-more" onclick="toggleContent('content1')">阅读更多</a>
+                <div class="full-content" id="content1">
+                    <h2>基本结构</h2>
+                    <p>每个HTML文档都包含以下基本结构：</p>
+                    <pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;页面标题&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    页面内容
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+                    <h2>常用标签</h2>
+                    <ul>
+                        <li>&lt;h1&gt; - &lt;h6&gt;: 标题标签</li>
+                        <li>&lt;p&gt;: 段落标签</li>
+                        <li>&lt;a&gt;: 超链接标签</li>
+                        <li>&lt;img&gt;: 图片标签</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 第二篇文章 -->
+            <div class="article-card">
+                <h1>CSS布局技巧</h1>
+                <p class="post-date">2024年3月16日</p>
+                <p>掌握Flexbox和Grid布局可以创建响应式网页设计...</p>
+                <a class="read-more" onclick="toggleContent('content2')">阅读更多</a>
+                <div class="full-content" id="content2">
+                    <h2>Flexbox布局示例</h2>
+                    <div style="display: flex; gap: 10px; margin: 15px 0;">
+                        <div style="background: #eee; padding: 20px;">项目1</div>
+                        <div style="background: #eee; padding: 20px;">项目2</div>
+                        <div style="background: #eee; padding: 20px;">项目3</div>
+                    </div>
+
+                    <h2>Grid布局示例</h2>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 15px 0;">
+                        <div style="background: #eee; padding: 20px;">单元格1</div>
+                        <div style="background: #eee; padding: 20px;">单元格2</div>
+                        <div style="background: #eee; padding: 20px;">单元格3</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <h2>文章分类</h2>
+            <ul>
+                <li>前端开发</li>
+                <li>后端技术</li>
+                <li>数据库</li>
+            </ul>
+
+            <h2 style="margin-top: 20px;">热门文章</h2>
+            <ul>
+                <li>HTML入门指南</li>
+                <li>CSS布局技巧</li>
+            </ul>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 追风者的博客 - 保留所有权利</p>
+    </footer>
+
+    <script>
+        function toggleContent(contentId) {
+            const content = document.getElementById(contentId);
+            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
